@@ -10,6 +10,9 @@ CREATE DATABASE IF NOT EXISTS `leb-sele`
 
 USE `leb-sele`;
 
+-- 重复导入时 DROP 顺序受外键约束限制，导入期间临时关闭，结束后恢复
+SET FOREIGN_KEY_CHECKS = 0;
+
 -- =====================================================================
 -- 1. 用户表 sys_user — 学生 / 老师 / 管理员通用登录账号
 -- =====================================================================
@@ -391,3 +394,5 @@ INSERT INTO `selection_round` (`round_no`, `round_type`, `name`) VALUES
   (1, 1, '第一轮初选'),
   (2, 2, '第二轮补录'),
   (3, 2, '第三轮补录');
+
+SET FOREIGN_KEY_CHECKS = 1;

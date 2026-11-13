@@ -58,7 +58,7 @@ INSERT INTO `system_config` (`config_key`, `config_value`, `config_desc`) VALUES
 --    AI 实训室(ROOM-AI=3)和 RB 实训室(ROOM-RB=4)名额紧张，制造竞争
 -- =====================================================================
 -- BCrypt hash of "123456"
-SET @pwd = '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy';
+SET @pwd = '$2a$10$KkTVGl7zV9SrPN0JzALFF.NP/8kIajXLirC1UZDjWrKoT/QzKucAS';
 
 INSERT INTO `sys_user` (`id`, `username`, `password`, `real_name`, `role`, `phone`, `email`) VALUES
   -- SD 实训室老师
