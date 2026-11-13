@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: selection-backend
+  datasource:
+    url: jdbc:mysql://localhost:3306/leb-sele?useUnicode=true&characterEncoding=utf8mb4&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: "123456"        # TODO 按本机 MySQL 实际密码修改
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   # 开发期打印 SQL，生产可注释
+  global-config:
+    banner: false
+    db-config:
+      logic-delete-field: deleted      # 全局逻辑删除字段
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    com.pbl.selection: debug
+
+# 自定义配置
+pbl:
+  jwt:
+    # HS256 签名密钥（长度需 >= 32 字符），生产环境请更换并外部化
+    secret: "pbl-selection-system-jwt-secret-key-2026-ai-pbl-teacher-student"
+    expire-hours: 24
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
